@@ -1,18 +1,9 @@
 const Koa = require('koa');
-const Router = require('koa-router'); 
-const requireDirectory = require('require-directory') //自动加载路由
+
+const InitManager = require('./core/init')
 
 const app = new Koa();
-
-requireDirectory(module, './api', { visit: filterRouter })// 模块，目录路径, 加载时候触发函数
-
-function filterRouter(obj) { 
-  if( obj instanceof Router) {
-    app.use(obj.routes())
-    console.log(app)
-  }
-}
-
+InitManager.initCore(app)
 
 
 
