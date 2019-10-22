@@ -23,7 +23,7 @@ class InitManager {
       }
     }
   }
-
+// 全局变量
   static loadHttpException (){
     const errors = require('../core/http-exception')
     global.errs =errors
