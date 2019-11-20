@@ -4,12 +4,21 @@
  * @param {*} ctx 
  * @param {*} next 
  */
+
 const { HttpException } = require('../core/http-exception')
 const catchError = async (ctx, next) => {
   try {
     await next()
   } catch (error) {
-    if(error instanceof HttpException){
+    // 区分全局和开发环境
+    const isHttpException = error instanceof HttpException
+    const isDev = global.config.environment === 'dev'
+    
+    if(isDev && !isHttpException){
+        throw error
+    }
+    
+    if(isHttpException){
       ctx.body = {
         error_code: error.errorCode,
         msg: error.msg,
