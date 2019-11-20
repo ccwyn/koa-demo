@@ -6,17 +6,31 @@ class User extends Model {
 }
 
 User.init({
-  // 主键：数字 查询性能好
-  id:{
-    type:Sequelize.INTEGER,
-    primaryKey:true, // 设置为主键
-    autoIncrement:true// 自增长
+  id: {
+      type: Sequelize.INTEGER,
+      primaryKey: true,
+      autoIncrement: true
   },
-  nickname:Sequelize.STRING,
-  email:Sequelize.STRING,
-  password:Sequelize.STRING,
-  openid:{
-    type:Sequelize.STRING(64),
-    unique:true,
-  }
-},{sequelize})
+  nickname: Sequelize.STRING,
+  email: {
+      type: Sequelize.STRING(128),
+      unique: true
+  },
+  password: {
+      //扩展 设计模式 观察者模式
+      //ES6 Reflect Vue3.0 
+      type: Sequelize.STRING,
+
+  },
+  openid: {
+      type: Sequelize.STRING(64),
+      unique: true
+  },
+}, {
+  sequelize,
+  tableName: 'user'
+})
+
+module.exports = {
+  User
+}

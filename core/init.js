@@ -14,7 +14,6 @@ class InitManager {
 
   static initLoadRouters() {
     // 模块，目录路径, 加载时候触发函数
-   
     requireDirectory(module, `${process.cwd()}/app/api/`, {
       visit: filterRouter
     })
