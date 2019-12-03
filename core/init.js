@@ -5,7 +5,7 @@ const requireDirectory = require('require-directory') //自动加载路由
 class InitManager {
   static initCore(app) {
     // 入口方法
-    console.log(process.cwd());
+    // console.log(process.cwd());
     InitManager.app = app
     InitManager.initLoadRouters()
     InitManager.loadHttpException()
@@ -32,7 +32,7 @@ class InitManager {
   // 全局变量
   static loadConfig (){
     const configPath = require(`${process.cwd()}/config/config.js`)
-    console.log(configPath);
+    // console.log(configPath);
     // const config = require(configPath)
     global.config = configPath
   }

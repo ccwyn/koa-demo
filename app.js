@@ -2,7 +2,7 @@ const Koa = require('koa');
 const bodyParser = require('koa-bodyparser');
 const InitManager = require('./core/init')
 const catchError = require('./middlewares/exceptions')
-// require('./app/models/user')
+require('./app/models/user')
 
 const app = new Koa();
 app.use(bodyParser()) // 处理post
