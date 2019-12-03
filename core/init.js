@@ -31,8 +31,10 @@ class InitManager {
   }
   // 全局变量
   static loadConfig (){
-    const config = require(`${process.cwd()}/config/config.js`)
-    global.config = config
+    const configPath = require(`${process.cwd()}/config/config.js`)
+    console.log(configPath);
+    // const config = require(configPath)
+    global.config = configPath
   }
 }
 module.exports = InitManager

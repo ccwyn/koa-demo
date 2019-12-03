@@ -1,4 +1,4 @@
-// const jwt = require('jsonwebtoken')
+const jwt = require('jsonwebtoken')
 /***
  * 
  */
@@ -42,6 +42,11 @@ const findMembers = function (instance, {
 // const generateToken = function(uid, scope){
 //     const secretKey = global.config.security.secretKey
 //     const expiresIn = global.config.security.expiresIn
+//     /**
+//      * 参数
+//      * 钥匙
+//      * 配置项
+//      */
 //     const token = jwt.sign({
 //         uid,
 //         scope
