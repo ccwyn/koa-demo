@@ -27,8 +27,8 @@ router.post('/', async (ctx) => {
   }
 })
 async function emailLogin(account, secret) {
-  const user = await
-      User.verifyEmailPassword(account, secret)
+  const user = await User.verifyEmailPassword(account, secret)
+  console.log(user);
   return token = generateToken(user.id, Auth.USER)
 }
 module.exports = router
