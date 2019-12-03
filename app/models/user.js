@@ -1,3 +1,4 @@
+const bcrypt = require('bcrypt');
 const {sequelize} = require('../../core/db')
 const {Sequelize,Model} = require('sequelize')
 
@@ -20,7 +21,11 @@ User.init({
       //扩展 设计模式 观察者模式
       //ES6 Reflect Vue3.0 
       type: Sequelize.STRING,
-
+      set(val) {
+        const salt = bcrypt.genSaltSync(10)
+        const psw = bcrypt.hashSync(val,salt)
+        this.setDataValue(psw)
+      }
   },
   openid: {
       type: Sequelize.STRING(64),
