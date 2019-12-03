@@ -10,9 +10,9 @@ const router = new Router({
   prefix: '/v1/token'
 })
 router.post('/', async (ctx) => {
-  console.log(3234);
+
   const v = await new TokenValidator().validate(ctx)
-  console.log(v);
+
   switch (v.get('body.type')) {
     case LoginType.USER_EMAIL:
         token = await emailLogin(v.get('body.account'),
@@ -28,9 +28,9 @@ router.post('/', async (ctx) => {
   }
 })
 async function emailLogin(account, secret) {
-  console.log(account, secret);
+
   const user = await User.verifyEmailPassword(account, secret)
-  console.log(user);
+
   // return token = generateToken(user.id, Auth.USER)
 }
 module.exports = router
