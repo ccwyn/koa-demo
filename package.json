@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "bcrypt": "^3.0.7",
+    "jsonwebtoken": "^8.5.1",
     "koa": "^2.10.0",
     "koa-bodyparser": "^4.2.1",
     "koa-router": "^7.4.0",
