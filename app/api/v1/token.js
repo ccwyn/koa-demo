@@ -9,12 +9,12 @@ const {
 const {
   Auth
 } = require('../../../middlewares/auth')
+const { WXManager } = require('../../services/wx')
 const { generateToken } = require('../../../core/util')
 const router = new Router({
   prefix: '/v1/token'
 })
 router.post('/', async (ctx) => {
-
   const v = await new TokenValidator().validate(ctx)
   let token
   switch (v.get('body.type')) {
@@ -34,6 +34,7 @@ router.post('/', async (ctx) => {
     token
   }
 })
+
 async function emailLogin(account, secret) {
 
   const user = await User.verifyEmailPassword(account, secret)
