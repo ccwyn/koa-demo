@@ -4,13 +4,11 @@ const { Sequelize, Model } = require('sequelize')
 
 class User extends Model {
   static async verifyEmailPassword(email, plainPassword) {
-    console.log(email);
     const user = await User.findOne({
       where: {
         email
       }
     })
-    console.log(user,plainPassword, user.password);
     if (!user) {
       throw new global.errs.AuthFailed('账号不存在')
     }

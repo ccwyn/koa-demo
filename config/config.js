@@ -7,8 +7,8 @@ module.exports = {
     user:'root',
     password:'123'
   },
-  // security:{
-  //   secretKey:"abcdefg",
-  //   expiresIn:60*60*24*30
-  // }
+  security:{
+    secretKey:"abcdefg",
+    expiresIn:60*60*24*30
+  }
 }

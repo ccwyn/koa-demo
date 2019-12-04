@@ -26,7 +26,6 @@ router.post('/register',async(ctx)=>{
       password: v.get('body.password2'),
       nickname: v.get('body.nickname')
   }
-console.log(user);
   await User.create(user)
   throw new global.errs.Success()
 

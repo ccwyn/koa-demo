@@ -38,29 +38,29 @@ const findMembers = function (instance, {
 
     return _find(instance)
 }
-
-// const generateToken = function(uid, scope){
-//     const secretKey = global.config.security.secretKey
-//     const expiresIn = global.config.security.expiresIn
-//     /**
-//      * 参数
-//      * 钥匙
-//      * 配置项
-//      */
-//     const token = jwt.sign({
-//         uid,
-//         scope
-//     },secretKey,{
-//         expiresIn
-//     })
-//     return token
-// }
+// 生成令牌
+const generateToken = function(uid, scope){
+    const secretKey = global.config.security.secretKey
+    const expiresIn = global.config.security.expiresIn
+    /**
+     * 参数数据
+     * 钥匙
+     * 配置项
+     */
+    const token = jwt.sign({
+        uid,
+        scope
+    },secretKey,{
+        expiresIn
+    })
+    return token
+}
 
 
 
 module.exports = {
     findMembers,
-    // generateToken,
+    generateToken,
 }
 
 
